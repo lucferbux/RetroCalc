@@ -37,6 +37,8 @@ class ViewController: UIViewController {
         outputLbl.text = runningNumber
     }
     
+    
+    
     @IBAction func onDividePress(sender: AnyObject) {
         processOperation(Operation.Divide)
     }
@@ -110,6 +112,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
+        //To change navBar to white, also plist View controller-based status bar appearance must be in NO
+        
+        if let navController = self.navigationController {
+            navController.navigationBar.tintColor = self.view.tintColor
+        }
+        
         // Do any additional setup after loading the view, typically from a nib.
         let path = NSBundle.mainBundle().pathForResource("btn", ofType: "wav")
         let url = NSURL(fileURLWithPath: path!)
